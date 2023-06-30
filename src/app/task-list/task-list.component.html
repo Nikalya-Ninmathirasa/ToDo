@@ -1,0 +1,9 @@
+<ng-content></ng-content>
+<input *ngIf="tasks.length" type="text" placeholder="search tasks.." class="form-control" name="taskSearch" id="taskSearch" [(ngModel)]="searchText">
+
+<ul>
+    <li class="d-flex my-3  py-2 px-2" *ngFor="let task of tasks | filterPipe: searchText; let i = index ">{{task}} 
+        <input class="form-check-input" (change)="checked(i)"  type="checkbox" value="" id="flexCheckDefault">
+        <button class=" btn btn-outline-danger" (click)="removeTodo(i)" >Delete</button></li>
+    
+  </ul>
